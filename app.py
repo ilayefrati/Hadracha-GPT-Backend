@@ -3,12 +3,13 @@ from openai import OpenAI
 from flask import Flask, jsonify, request
 import json
 from flask_cors import CORS
+import os
 
-API_KEY = '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'
+API_KEY = os.getenv('OPENAI_API_KEY')
 
 client = OpenAI(api_key=API_KEY)
-ASSISTANT_ID = 'asst_gD47XKABIsB43nodR1e3lq02'
-VECTOR_STORE_ID = 'vs_y0yhscNtVdVwQBQ0S1DXcVih'
+ASSISTANT_ID = os.getenv('ASSISTANT_ID')
+VECTOR_STORE_ID = os.getenv('VECTOR_STORE_ID')
 
 app = Flask(__name__)
 CORS(app)
